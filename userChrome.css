@@ -10,11 +10,6 @@
   scrollbar-width: none;
 }
 
-* {
-  /* hide scroll bar */
-  overflow-x: hidden !important;
-}
-
 #browser vbox#appcontent tabbrowser,
 #content,
 #tabbrowser-tabpanels,
