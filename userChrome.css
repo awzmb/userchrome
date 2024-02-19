@@ -3,8 +3,9 @@
 /* New Tab Flash */
 :root {
   --primary-color: #242933;
-  --secondary-color: #d8dee9;
-  --accent-color: #81a1c1;
+  --text-color-light: #d8dee9;
+  --accent-color-green: #81a1c1;
+  --accent-color-blue: #434c5e;
   --newtab-textbox-background-color: var(--primary-color);
   /* hide scroll bar */
   scrollbar-width: none;
@@ -24,7 +25,7 @@ browser[type="content"] > html {
 
 /* Toolbar buttons */
 .toolbarbutton-1 {
-  fill: var(--accent-color) !important;
+  fill: var(--accent-color-green) !important;
   background-color: var(--primary-color) !important;
 }
 
@@ -46,8 +47,11 @@ browser[type="content"] > html {
   background-color: var(--primary-color) !important;
 }
 
-/* remove lines */
+#tabbrowser-tabs[selected="true"] .tab-background {
+  background-color: var(--primary-color) !important;
+}
 
+/* remove lines */
 #navigator-toolbox::after {
   display: none !important;
 }
@@ -66,13 +70,20 @@ tab {
   height: 2rem;
   background-color: var(--primary-color) !important;
   font-weight: thin !important;
-  color: var(--secondary-color) !important;
+  color: var(--text-color-light) !important;
 }
 
+/* active tab background color */
+/*.tab-content {*/
+  /*background-color: var(--primary-color) !important;*/
+  /*font-weight: bold !important;*/
+  /*color: var(--text-color-light) !important;*/
+/*}*/
+
 .tab-content[selected="true"] {
-  background-color: var(--primary-color) !important;
+  background-color: var(--accent-color-blue) !important;
   font-weight: bold !important;
-  color: var(--secondary-color) !important;
+  color: var(--text-color-light) !important;
 }
 
 #nav-bar-customization-target {
@@ -84,7 +95,7 @@ tab {
   background-color: var(--primary-color) !important;
   background: none !important;
   border: none !important;
-  color: var(--secondary-color) !important;
+  color: var(--text-color-light) !important;
   font-weight: bold !important;
 }
 
@@ -111,10 +122,20 @@ toolbarbutton.scrollbutton-down {
   background-color: transparent !important;
 }
 
+.tab-line[selected="true"] {
+  background-color: red !important;
+}
+
+.tab-background[selected="true"] {
+  background-color: var(--accent-color-blue) !important;
+  background-image: none !important;
+}
+
 .tabbrowser-tab:hover
   > .tab-stack
   > .tab-background:not([selected="true"]):not([multiselected]) {
-  background-color: transparent !important;
+  background-color: var(--accent-color-blue) !important;
+  background-image: none !important;
 }
 
 #navigator-toolbox {
@@ -140,6 +161,27 @@ toolbarbutton.scrollbutton-down {
   visibility: collapse !important;
 }
 */
+
+/* change up usercontext label */
+#userContext-icons{
+  background:var(--identity-tab-color)!important;
+  margin:auto 3px!important;
+  border-radius:2px!important;
+  padding:0 2px 0 5px!important;
+}
+
+#userContext-label{
+  color:#fff!important;
+}
+
+#userContext-indicator{
+  fill:#fff!important;
+  margin-right:2px!important;
+}
+
+#userContext-indicator[data-identity-icon="circle"]{
+  display:none!important;
+}
 
 #navigator-toolbox {
   --tabs-border-color: var(--primary-color) !important;
@@ -168,7 +210,7 @@ toolbarseparator {
 }
 
 .urlbarView {
-  /*background:var(--primary-color) !important;*/
+  background:var(--primary-color) !important;
 }
 
 panelview {
@@ -209,18 +251,6 @@ panelview {
   margin-top: 0px !important;
 }
 
-/*tabs below nav bar
-#nav-bar {
-  -moz-box-ordinal-group: 1 !important;
-}
-#PersonalToolbar {
-  -moz-box-ordinal-group: 2 !important;
-}
-#titlebar {
-  -moz-box-ordinal-group: 3 !important;
-}
-*/
-
 /* highlight urlbar in private mode only
 #main-window[privatebrowsingmode=temporary] {
   --toolbar-field-focus-border-color: rgb(128,0,215) !important;
@@ -229,6 +259,6 @@ panelview {
 
 /* highlight urlbar in private mode only */
 #main-window {
-  --toolbar-field-focus-border-color: var(--accent-color) !important;
+  --toolbar-field-focus-border-color: var(--accent-color-green) !important;
   --toolbar-field-focus-background-color: var(--primary-color) !important;
 }
